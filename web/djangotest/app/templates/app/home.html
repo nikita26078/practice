@@ -1,0 +1,36 @@
+{% extends "app/layout.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-3">
+            <img class="img-category">
+            <h2>Продажи</h2>
+            <p>Управление продажами, создание рекламных кампаний</p>
+            <p><a class="btn btn-secondary" href="/sales" role="button">Перейти</a></p>
+        </div>
+        <div class="col-lg-3">
+            <img class="img-category">
+            <h2>Снабжение</h2>
+            <p>Оформление закупок и их обработка</p>
+            <p><a class="btn btn-secondary" href="/shipping" role="button">Перейти</a></p>
+        </div>
+        <div class="col-lg-3">
+            <img class="img-category">
+            <h2>Бухгалтерия</h2>
+            <p>Контроль финансов</p>
+            <p><a class="btn btn-secondary" href="/finances" role="button">Перейти</a></p>
+        </div>
+        <div class="col-lg-3">
+            <img class="img-category">
+            <h2>Персонал</h2>
+            <p>Управление персоналом</p>
+            <p><a class="btn btn-secondary" href="/staff" role="button">Перейти</a></p>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+

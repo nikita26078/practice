@@ -1,0 +1,6 @@
+{% extends "app/base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+<h1>Добро пожаловать, {{ new_user.first_name }}!</h1>
+<p>Вы успешно вошли на сайт. Теперь вы можете перейти на <a href="{% url 'home' %}">главную</a>.</p>
+{% endblock %}

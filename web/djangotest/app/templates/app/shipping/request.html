@@ -1,0 +1,21 @@
+{% extends "app/layout.html" %}
+{% block title %}Снабжение{% endblock %}
+
+{% load static %}
+
+{% block extrahead %}
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+{{ form.media }}
+{% endblock %}
+
+{% block content %}
+<div style="max-width: 70rem;min-width: 18rem;">
+    <h1>Создать заявку</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success" type="submit">Отправить</button>
+    </form>
+</div>
+
+{% endblock %}

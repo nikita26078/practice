@@ -1,0 +1,20 @@
+{% extends "app/layout.html" %}
+{% block title %}Снабжение{% endblock %}
+{% block content %}
+
+{% for request in object_list %}
+    <div class="card h-100 mb-3 ms-3" style="max-width: 18rem;min-width: 18rem;">
+        <div class="card-body">
+            <h5>{{request.title}}</h5>
+            <p class="card-text">{{request.shipper}}</p>
+            <p class="card-text">{{request.desc}}</p>
+            <p class="card-text">{{request.items}}</p>
+            <p class="card-text">{{request.status}}</p>
+            <div class="mx-auto">
+                <a href="/shipping/delete_shipping/{{request.id}}" class="btn btn-primary mb-2">Удалить</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "app/layout.html" %}
+{% block title %}Профиль{% endblock %}
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <img src="static/profile.png" style="max-width:160px;width:100%;" class="mx-auto d-block card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{ profile.username }}</h5>
+        <p class="card-text">{{ profile.email }}</p>
+        <p class="card-text">Должность: {{ profile.employee.post }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Количество заказов: 0</li>
+        <li class="list-group-item">Количество заявок: 0</li>
+    </ul>
+</div>
+
+{% endblock %}

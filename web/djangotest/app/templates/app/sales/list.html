@@ -1,0 +1,18 @@
+{% extends "app/layout.html" %}
+{% block title %}Продажи{% endblock %}
+{% block content %}
+
+{% for campaign in object_list %}
+    <div class="card h-100 mb-3 ms-3" style="max-width: 18rem;min-width: 18rem;">
+        <div class="card-body">
+            <h5>{{campaign.title}}</h5>
+            <img class="card-img-top" src="{{ MEDIA_URL }}{{ campaign.plots.url }}" alt="Изображение не загрузилось">
+            <p class="card-text">{{campaign.desc}}</p>
+            <div class="mx-auto">
+                <a href="/sales/delete/{{campaign.id}}" class="btn btn-primary mb-2">Удалить</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

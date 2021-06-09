@@ -1,0 +1,23 @@
+{% extends "app/layout.html" %}
+{% block title %}Персонал{% endblock %}
+{% block content %}
+
+{% for person in object_list %}
+    <div class="card h-100 mb-3 ms-3" style="max-width: 18rem;min-width: 18rem;">
+        <div class="card-body">
+            <h5>{{person.user.username}}</h5>
+            <p class="card-text">{{person.user.last_name}} {{person.user.first_name}} {{person.user.employee.father_name}}</p>
+            <p><a href="tel:{{person.phone}}" class="card-link">{{person.phone}}</a></p>
+            <p><a href="{{person.user.email}}" class="card-link">{{person.user.email}}</a></p>
+            <p class="card-text">{{person.post}}</p>
+            <div class="mx-auto">
+                <a href="/staff/edit/{{person.user.id}}" class="btn btn-primary mb-2">Изменить</a>
+                {% if not person.user.is_superuser %}
+                <a href="/staff/delete/{{person.user.id}}" class="btn btn-primary mb-2">Удалить</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
