@@ -1,0 +1,15 @@
+{% extends "app/layout.html" %}
+{% block title %}Снабжение{% endblock %}
+{% block content %}
+
+<div style="max-width: 70rem;min-width: 18rem;">
+    <h1>Добавить товар</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <span> {{ error }} </span>
+        <button class="btn btn-success" type="submit">Отправить</button>
+    </form>
+</div>
+
+{% endblock %}

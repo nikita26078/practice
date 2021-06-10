@@ -5,16 +5,17 @@ from django.forms import ModelForm, CharField, PasswordInput, Form
 from django.urls import reverse_lazy
 from django_addanother.widgets import AddAnotherWidgetWrapper
 
-from .models import ShipRequest, Employee, AdCampaign, FinanceReview
+from .models import ShipRequest, Employee, AdCampaign, FinanceReview, Item
 
 
 class UserRegistrationForm(ModelForm):
     password = CharField(label='Пароль', widget=PasswordInput)
     password2 = CharField(label='Повторите пароль', widget=PasswordInput)
+    patronym = forms.CharField(label='Отчество')
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email')
+        fields = ('username', 'first_name', 'last_name', 'patronym', 'email')
 
     def clean_password2(self):
         cd = self.cleaned_data
@@ -34,7 +35,7 @@ class ShippingForm(ModelForm):
         fields = ['shipper', 'items', 'desc']
         widgets = {
             'items': AddAnotherWidgetWrapper(
-                forms.Select,
+                forms.SelectMultiple,
                 reverse_lazy('shipping_quantity'),
             ),
         }
@@ -43,7 +44,7 @@ class ShippingForm(ModelForm):
 class EmployeeForm(ModelForm):
     class Meta:
         model = Employee
-        fields = ['father_name', 'post', 'phone']
+        fields = ['post', 'phone']
 
 
 class AdCampaignForm(ModelForm):
@@ -57,44 +58,8 @@ class FinanceReviewForm(ModelForm):
         model = FinanceReview
         fields = ['title', 'plots', 'desc']
 
-# class NewsForm(ModelForm):
-#     class Meta:
-#         model = News
-#         fields = ['title', 'desc', 'body', 'date', 'user', 'category', 'image']
-#
-#         labels = {
-#             'title': 'Заголовок',
-#             'body': 'Текст',
-#             'desc': 'Описание',
-#             'date': 'Дата',
-#             'user': 'Пользователь',
-#             'category': 'Категория',
-#             'image': 'Изображение'
-#         }
-#         widgets = {
-#             "title": TextInput(attrs={
-#                 'class': 'form-control',
-#                 'placeholder': 'Название статьи'
-#             }),
-#             "desc": TextInput(attrs={
-#                 'class': 'form-control',
-#                 'placeholder': 'Описание статьи',
-#             }),
-#             "date": DateInput(attrs={
-#                 'class': 'form-control',
-#                 'type': 'date'
-#             }),
-#             "body": Textarea(attrs={
-#                 'class': 'form-control',
-#                 'placeholder': 'Текст статьи'
-#             }),
-#             "user": Select(attrs={
-#                 'class': 'form-control',
-#             }),
-#             "category": Select(attrs={
-#                 'class': 'form-control',
-#             }),
-#             "image": FileInput(attrs={
-#                 'class': 'form-control',
-#             }),
-#         }
+
+class ItemForm(ModelForm):
+    class Meta:
+        model = Item
+        fields = ['name', 'price', 'desc', 'category']

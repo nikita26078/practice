@@ -6,10 +6,10 @@ from django.dispatch import receiver
 
 
 class Item(models.Model):
-    name = models.CharField(max_length=255)
-    price = models.IntegerField()
-    desc = models.TextField()
-    category = models.CharField(max_length=255)
+    name = models.CharField('Имя', max_length=255)
+    price = models.IntegerField('Стоимость')
+    desc = models.TextField('Описание')
+    category = models.CharField('Категория', max_length=255)
 
     def __str__(self):
         return self.name
@@ -86,7 +86,7 @@ class Post(models.Model):
 
 class Employee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    father_name = models.CharField('Отчество', max_length=255)
+    patronym = models.CharField('Отчество', max_length=255)
     post = models.ForeignKey(Post, related_name='post', on_delete=models.SET_NULL,
                              default=None, null=True, blank=True, verbose_name='Должность')
     phone = models.CharField('Телефон', max_length=255, blank=True)
@@ -106,18 +106,3 @@ class Employee(models.Model):
         except ObjectDoesNotExist:
             Employee.objects.create(user=instance)
 
-# class News(models.Model):
-#     title = models.CharField(max_length=255)
-#     body = models.TextField()
-#     date = models.DateTimeField()
-#     desc = models.TextField()
-#     image = models.ImageField(upload_to='images/')
-#     category = models.ForeignKey(Category, related_name='category', on_delete=models.SET_NULL,
-#                                  default=None, null=True, blank=True)
-#     user = models.ForeignKey(User, related_name='user', on_delete=models.CASCADE)
-#
-#     def __str__(self):
-#         return self.title  # Иначе при обращение к title будет объект
-#
-#     class Meta:
-#         verbose_name_plural = "News"
