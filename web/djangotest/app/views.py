@@ -11,10 +11,7 @@ from .models import Item, ShipRequest, Employee, AdCampaign, FinanceReview, Orde
 
 
 def index(request):
-    if request.user.is_anonymous:
-        return render(request, 'app/index.html')
-    else:
-        return render(request, 'app/home.html')
+    return render(request, 'app/index.html')
 
 
 def home(request):

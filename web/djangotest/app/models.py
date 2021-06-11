@@ -14,12 +14,20 @@ class Item(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Товар"
+        verbose_name_plural = "Товары"
+
 
 class Store(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "Магазин"
+        verbose_name_plural = "Магазины"
 
 
 class OrderQuantity(models.Model):
@@ -30,7 +38,8 @@ class OrderQuantity(models.Model):
         return str(self.quantity) + 'x ' + self.product.name
 
     class Meta:
-        verbose_name_plural = "Order quantities"
+        verbose_name = "Количество товара"
+        verbose_name_plural = "Количество товара"
 
 
 class Order(models.Model):
@@ -42,12 +51,20 @@ class Order(models.Model):
     def __str__(self):
         return 'Заказ ' + str(self.id)
 
+    class Meta:
+        verbose_name = "Заказ"
+        verbose_name_plural = "Заказы"
+
 
 class Shipper(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "Поставщик"
+        verbose_name_plural = "Поставщики"
 
 
 class FinanceReview(models.Model):
@@ -58,11 +75,22 @@ class FinanceReview(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = "Финансовый отчет"
+        verbose_name_plural = "Финансовые отчеты"
+
 
 class AdCampaign(models.Model):
     title = models.CharField('Название', max_length=255)
     plots = models.ImageField('Графики', upload_to='images/')
     desc = models.TextField('Описание')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Рекламная кампания"
+        verbose_name_plural = "Рекламные кампании"
 
 
 class ShipRequest(models.Model):
@@ -76,12 +104,20 @@ class ShipRequest(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = "Заявка на поставку"
+        verbose_name_plural = "Заявки на поставку"
+
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = "Должность"
+        verbose_name_plural = "Должности"
 
 
 class Employee(models.Model):
@@ -106,3 +142,6 @@ class Employee(models.Model):
         except ObjectDoesNotExist:
             Employee.objects.create(user=instance)
 
+    class Meta:
+        verbose_name = "Сотрудник"
+        verbose_name_plural = "Сотрудники"
