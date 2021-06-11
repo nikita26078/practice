@@ -38,6 +38,12 @@ body {
     border-radius: 50% !important;
     width: 140px;
     height: 140px;
-    content: url("data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
 }
 
+.category {
+    margin: 0 auto;
+    min-width: 300px;
+    max-width: 360px;
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}

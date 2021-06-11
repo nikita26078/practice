@@ -11,7 +11,7 @@ from .models import ShipRequest, Employee, AdCampaign, FinanceReview, Item
 class UserRegistrationForm(ModelForm):
     password = CharField(label='Пароль', widget=PasswordInput)
     password2 = CharField(label='Повторите пароль', widget=PasswordInput)
-    patronym = forms.CharField(label='Отчество')
+    patronym = CharField(label='Отчество')
 
     class Meta:
         model = User

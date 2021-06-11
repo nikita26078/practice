@@ -2,20 +2,18 @@
 {% block title %}Welcome{% endblock %}
 {% block content %}
 <h1>Добро пожаловать в систему!</h1>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <img class="img-category">
-            <h2>Логин</h2>
-            <p>Войти в систему</p>
-            <p><a class="btn btn-secondary" href="/login" role="button">Перейти</a></p>
-        </div>
-        <div class="col">
-            <img class="img-category">
-            <h2>Регистрация</h2>
-            <p>Зарегистрироваться в системе</p>
-            <p><a class="btn btn-secondary" href="/register" role="button">Перейти</a></p>
-        </div>
+<div class="panel">
+    <div class="category">
+        <img class="img-category" src="/static/user.svg">
+        <h2>Логин</h2>
+        <p>Войти в систему</p>
+        <p><a class="btn btn-secondary" href="/login" role="button">Перейти</a></p>
+    </div>
+    <div class="category">
+        <img class="img-category" src="/static/user.svg">
+        <h2>Регистрация</h2>
+        <p>Зарегистрироваться в системе</p>
+        <p><a class="btn btn-secondary" href="/register" role="button">Перейти</a></p>
     </div>
 </div>
 {% endblock %}
