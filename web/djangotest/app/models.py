@@ -21,6 +21,7 @@ class Item(models.Model):
 
 class Store(models.Model):
     name = models.CharField(max_length=255)
+    address = models.TextField('Адрес')
 
     def __str__(self):
         return self.name
@@ -43,10 +44,10 @@ class OrderQuantity(models.Model):
 
 
 class Order(models.Model):
-    items = models.ManyToManyField(OrderQuantity)
+    items = models.ManyToManyField(OrderQuantity, verbose_name='Товары')
     store = models.ForeignKey(Store, related_name='store', on_delete=models.SET_NULL,
                                 default=None, null=True, blank=True, verbose_name='Магазин')
-    status = models.CharField(max_length=255)
+    status = models.CharField('Статус', max_length=255)
 
     def __str__(self):
         return 'Заказ ' + str(self.id)

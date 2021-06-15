@@ -5,13 +5,28 @@
 {% for order in object_list %}
     <div class="card h-100 mb-3 ms-3" style="max-width: 18rem;min-width: 18rem;">
         <div class="card-body">
-            <h5>{{order.title}}</h5>
-            <p class="card-text">{{order.shipper}}</p>
-            <p class="card-text">{{order.desc}}</p>
-            <p class="card-text">{{order.items}}</p>
+            <h5>Заказ {{order.id}}</h5>
+            <div class="accordion my-3" id="accordion{{ order.id }}">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{ order.id }}">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                              data-bs-target="#collapse{{ order.id }}" aria-expanded="false"
+                              aria-controls="collapse{{ order.id }}">
+                        Список товаров
+                      </button>
+                    </h2>
+                    <div id="collapse{{ order.id }}" class="accordion-collapse collapse"
+                         aria-labelledby="heading{{ order.id }}" data-bs-parent="#accordion{{ order.id }}">
+                        <div class="accordion-body">
+                            {% for item in order.items.all %}<p class="card-text">{{ item }}</p>{% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="card-text">{{order.store}}</p>
             <p class="card-text">{{order.status}}</p>
             <div class="mx-auto">
-                <a href="/shipping/delete_order/{{order.id}}" class="btn btn-primary mb-2">Удалить</a>
+                <a href="/shipping/delete_order/{{order.id}}" class="btn btn-primary mb-2">Отменить</a>
             </div>
         </div>
     </div>

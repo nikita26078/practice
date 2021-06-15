@@ -8,7 +8,23 @@
             <h5>{{request.title}}</h5>
             <p class="card-text">{{request.shipper}}</p>
             <p class="card-text">{{request.desc}}</p>
-            <p class="card-text">{{request.items}}</p>
+            <div class="accordion my-3" id="accordion{{ request.id }}">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{ request.id }}">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                              data-bs-target="#collapse{{ request.id }}" aria-expanded="false"
+                              aria-controls="collapse{{ request.id }}">
+                        Список товаров
+                      </button>
+                    </h2>
+                    <div id="collapse{{ request.id }}" class="accordion-collapse collapse"
+                         aria-labelledby="heading{{ request.id }}" data-bs-parent="#accordion{{ request.id }}">
+                        <div class="accordion-body">
+                            {% for item in request.items.all %}<p class="card-text">{{ item }}</p>{% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
             <p class="card-text">{{request.status}}</p>
             <div class="mx-auto">
                 <a href="/shipping/delete_shipping/{{request.id}}" class="btn btn-primary mb-2">Удалить</a>
