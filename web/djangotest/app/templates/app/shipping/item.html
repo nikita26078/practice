@@ -4,7 +4,7 @@
 
 <div style="max-width: 70rem;min-width: 18rem;">
     <h1>Добавить товар</h1>
-    <form method="post">
+    <form enctype="multipart/form-data" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <span> {{ error }} </span>

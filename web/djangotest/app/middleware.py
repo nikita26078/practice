@@ -15,6 +15,9 @@ class AuthRequiredMiddleware(object):
         if not request.user.is_authenticated and request.path_info not in EXCLUDE_URLS:
             return HttpResponseRedirect('/')
 
+        if request.user.is_authenticated and request.path_info in EXCLUDE_URLS:
+            return HttpResponseRedirect('/home')
+
         # Code to be executed for each request/response after
         # the view is called.
 

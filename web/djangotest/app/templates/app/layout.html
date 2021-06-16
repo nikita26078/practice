@@ -45,11 +45,11 @@
 
             </ul>
             <div class="pull-right">
-                <ul class="nav pull-right">
+                <ul class="navbar-nav pull-right">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Добро пожаловать!
+                            Добро пожаловать, {{request.user.first_name}}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/logout">Выйти</a></li>

@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for review in object_list %}
-    <div class="card h-100 mb-3 ms-3" style="max-width: 18rem;min-width: 18rem;">
+    <div class="card h-100 mb-3 ms-3" style="max-width: 600px;">
         <div class="card-body">
             <h5>{{review.title}}</h5>
             <img class="card-img-top" src="{{ MEDIA_URL }}{{ review.plots.url }}" alt="Изображение не загрузилось">

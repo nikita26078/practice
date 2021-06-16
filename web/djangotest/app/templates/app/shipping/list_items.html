@@ -1,20 +1,21 @@
 {% extends "app/layout.html" %}
 {% block title %}Снабжение{% endblock %}
 {% block content %}
-
+<div class="panel">
 {% for item in object_list %}
-    <div class="card h-100 mb-3 ms-3" style="max-width: 18rem;min-width: 18rem;">
+    <div class="card h-100 mb-3 ms-3" style="max-width: 18rem;min-width: 20rem;">
         <div class="card-body">
+            <img class="card-img-top" src="{{ MEDIA_URL }}{{ item.image.url }}" alt="Изображение не загрузилось">
             <h5>{{item.name}}</h5>
-            <p class="card-text">{{item.desc}}</p>
+            <p class="card-text line-clamp">{{item.desc}}</p>
             <p class="card-text">Категория: {{item.category}}</p>
             <p class="card-text">Стоимость: {{item.price}}р</p>
-            <img class="card-img-top" src="{{ MEDIA_URL }}{{ campaign.plots.url }}" alt="Изображение не загрузилось">
             <div class="mx-auto">
                 <a href="/shipping/delete_item/{{item.id}}" class="btn btn-primary mb-2">Удалить</a>
             </div>
         </div>
     </div>
 {% endfor %}
+</div>
 
 {% endblock %}

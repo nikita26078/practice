@@ -62,4 +62,4 @@ class FinanceReviewForm(ModelForm):
 class ItemForm(ModelForm):
     class Meta:
         model = Item
-        fields = ['name', 'price', 'desc', 'category']
+        fields = ['name', 'price', 'desc', 'category', 'image']

@@ -47,3 +47,14 @@ body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
 }
+
+.line-clamp {
+  display: block;
+    display: -webkit-box;
+    max-width: 400px;
+    line-height: 1.4;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

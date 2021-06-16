@@ -2,6 +2,7 @@
 {% block title %}Снабжение{% endblock %}
 {% block content %}
 
+<div class="panel">
 {% for order in object_list %}
     <div class="card h-100 mb-3 ms-3" style="max-width: 18rem;min-width: 18rem;">
         <div class="card-body">
@@ -31,5 +32,6 @@
         </div>
     </div>
 {% endfor %}
+</div>
 
 {% endblock %}
