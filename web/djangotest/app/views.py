@@ -65,6 +65,15 @@ def shipping_delete_order(request, id):
     return redirect("/shipping/list_orders", context=mydictionary)
 
 
+def shipping_delete_item(request, id):
+    obj = Item.objects.get(id=id)
+    obj.delete()
+    mydictionary = {
+        "object_list": Item.objects.all()
+    }
+    return redirect("/shipping/list_items", context=mydictionary)
+
+
 def profile(request):
     if request.user.is_anonymous:
         return user_login(request)

@@ -10,6 +10,7 @@ class Item(models.Model):
     price = models.IntegerField('Стоимость')
     desc = models.TextField('Описание')
     category = models.CharField('Категория', max_length=255)
+    image = models.ImageField('Изображение', upload_to='images/')
 
     def __str__(self):
         return self.name
