@@ -11,6 +11,7 @@
             <p class="card-text">Категория: {{item.category}}</p>
             <p class="card-text">Стоимость: {{item.price}}р</p>
             <div class="mx-auto">
+                <a href="/shipping/view_item/{{item.id}}" class="btn btn-primary mb-2">Открыть</a>
                 <a href="/shipping/delete_item/{{item.id}}" class="btn btn-primary mb-2">Удалить</a>
             </div>
         </div>
